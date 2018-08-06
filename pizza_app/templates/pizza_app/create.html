@@ -1,0 +1,21 @@
+{% extends 'pizza_app/_base.html' %}
+
+{% block content %}
+
+<form action="{% url 'pizza:create' %}" method="POST">
+    {% csrf_token %}
+
+    <h2>Address</h2>
+    {{ delivery_form.as_p }}
+
+    <hr />
+
+    <h2>Pizza</h2>
+    {{ pizza_form.as_p }}
+
+    <input type="submit" value="Submit" />
+</form>
+    {% if user.is_anonymous %}
+        <a href="{% url "auth_app:register" %}">Register</a>
+    {% endif %}
+{% endblock %}

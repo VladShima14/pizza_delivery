@@ -1,0 +1,28 @@
+{% extends 'pizza_app/_base.html' %}
+
+{% block content %}
+<h1>Orders history</h1>
+
+{% for day, calcs in order.items %}
+
+<h2>{{day}}</h2>
+<ul>
+    <li>Pizzas ordered: {{calcs.0}}</li>
+    <li>Pizzas kinds:
+        <ul>
+            {% for kind in calcs.1 %}
+            <li>Name:{{kind.name}}, orders: {{kind.num_pizzas}}</li>
+            {% endfor %}
+        </ul>
+    </li>
+        <li>Pizzas sizes:
+        <ul>
+            {% for size in calcs.2 %}
+            <li>Size:{{size.size}}, orders: {{size.num_sizes}}</li>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+<hr />
+{% endfor %}
+{% endblock %}

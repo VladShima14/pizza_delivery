@@ -1,0 +1,7 @@
+Django==1.11
+djnagorestframework
+django-debug-toolbar
+pytz
+sqlparse
+wheel
+gunicorn

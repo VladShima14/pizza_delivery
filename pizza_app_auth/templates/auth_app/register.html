@@ -1,0 +1,23 @@
+{% extends 'auth_app/_base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+
+<h1>Registration page</h1>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form action="{% url 'auth_app:register' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}
